@@ -16,7 +16,7 @@ import { ToastContainer } from './components/common/Toast';
 import { Car, Booking, FilterState, ToastMessage } from './types';
 import { 
   getStoredCars, getStoredBookings, getFavorites, 
-  toggleFavoriteCar 
+  toggleFavoriteCar, syncFromBackend 
 } from './utils/storage';
 
 const INITIAL_FILTERS: FilterState = {
@@ -77,6 +77,12 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     refreshData();
+    syncFromBackend().then((data) => {
+      if (data) {
+        setCars(data.cars);
+        setBookings(data.bookings);
+      }
+    });
   }, []);
 
   // Filter updates

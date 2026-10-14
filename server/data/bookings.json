@@ -1,0 +1,197 @@
+[
+  {
+    "id": "BK-78219",
+    "carId": "car-1",
+    "car": {
+      "id": "car-1",
+      "name": "Porsche 911 Carrera 4S",
+      "brand": "Porsche",
+      "category": "Supercar",
+      "year": 2024,
+      "dailyRate": 389,
+      "hourlyRate": 55,
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "specs": {
+        "seats": 4,
+        "transmission": "Automatic",
+        "fuelType": "Petrol",
+        "horsepower": 443,
+        "acceleration": "3.4s (0-60 mph)",
+        "topSpeed": "190 mph",
+        "rangeOrMpg": "24 MPG Highway",
+        "luggage": 2,
+        "doors": 2
+      },
+      "features": [
+        "Sport Chrono Package",
+        "PASM Sport Suspension",
+        "Bose High-End Surround Sound",
+        "Apple CarPlay & Android Auto",
+        "Porsche Dynamic Light System Plus",
+        "Carbon Fiber Interior Package"
+      ],
+      "rating": 4.98,
+      "reviewsCount": 142,
+      "isAvailable": true,
+      "location": "Los Angeles (LAX) & Beverly Hills",
+      "badge": "Top Pick",
+      "description": "An iconic silhouette packed with twin-turbocharged precision. The Porsche 911 Carrera 4S delivers unparalleled all-wheel grip, hair-raising acceleration, and refined everyday luxury.",
+      "reviews": [
+        {
+          "id": "rev-1",
+          "author": "Alexander Wright",
+          "rating": 5,
+          "date": "3 days ago",
+          "comment": "Pure exhilaration driving down the Pacific Coast Highway. Flawless condition, spotless interior, and the exhaust note is addictive.",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+        },
+        {
+          "id": "rev-2",
+          "author": "Elena Rostova",
+          "rating": 5,
+          "date": "2 weeks ago",
+          "comment": "The handover at LAX was completely seamless. Outstanding customer care from the Apex team.",
+          "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80"
+        }
+      ]
+    },
+    "pickupLocation": "Los Angeles Airport (LAX)",
+    "dropoffLocation": "Beverly Hills Luxury Hub",
+    "pickupDate": "2026-10-18",
+    "pickupTime": "10:00 AM",
+    "dropoffDate": "2026-10-21",
+    "dropoffTime": "06:00 PM",
+    "days": 3,
+    "customer": {
+      "fullName": "Julian Hayes",
+      "email": "julian.hayes@example.com",
+      "phone": "+1 (310) 555-0199",
+      "age": 32,
+      "licenseNumber": "CA-9842109",
+      "notes": "Please ensure car is pre-conditioned to 68°F."
+    },
+    "addOns": {
+      "insurance": "premium",
+      "gps": true,
+      "childSeat": false,
+      "additionalDriver": true,
+      "unlimitedMileage": true,
+      "roadsideAssistance": true
+    },
+    "pricing": {
+      "baseRate": 389,
+      "days": 3,
+      "subtotal": 1167,
+      "insuranceCost": 75,
+      "addOnsTotal": 135,
+      "discountAmount": 116.7,
+      "taxesAndFees": 126.03,
+      "total": 1286.33,
+      "promoCodeApplied": "APEX20"
+    },
+    "payment": {
+      "method": "credit_card",
+      "last4": "4242",
+      "status": "confirmed",
+      "paidAt": "2026-10-12T14:20:00Z"
+    },
+    "createdAt": "2026-10-12T14:20:00Z"
+  },
+  {
+    "id": "BK-61904",
+    "carId": "car-2",
+    "car": {
+      "id": "car-2",
+      "name": "Tesla Model S Plaid",
+      "brand": "Tesla",
+      "category": "Electric",
+      "year": 2024,
+      "dailyRate": 299,
+      "hourlyRate": 42,
+      "image": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "specs": {
+        "seats": 5,
+        "transmission": "Automatic",
+        "fuelType": "Electric",
+        "horsepower": 1020,
+        "acceleration": "1.99s (0-60 mph)",
+        "topSpeed": "200 mph",
+        "rangeOrMpg": "396 mi EPA Range",
+        "luggage": 4,
+        "doors": 4
+      },
+      "features": [
+        "Tri-Motor All-Wheel Drive",
+        "Full Self-Driving Capability (Supervised)",
+        "17-inch Cinematic OLED Display",
+        "Yoke Steering Control",
+        "Gaming Computer (10 teraflops)",
+        "Free Supercharging Access"
+      ],
+      "rating": 4.95,
+      "reviewsCount": 215,
+      "isAvailable": true,
+      "location": "San Francisco (SFO) & Silicon Valley",
+      "badge": "Popular",
+      "description": "Beyond supercar speeds in a pristine electric executive saloon. 1,020 peak horsepower launches you with instantaneous zero-lag thrust while coddling you in quiet acoustic glass.",
+      "reviews": [
+        {
+          "id": "rev-3",
+          "author": "Marcus Vance",
+          "rating": 5,
+          "date": "1 week ago",
+          "comment": "Unbelievable acceleration. The roller-coaster launch is something everyone needs to experience once.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+        }
+      ]
+    },
+    "pickupLocation": "San Francisco Int Airport (SFO)",
+    "dropoffLocation": "San Francisco Int Airport (SFO)",
+    "pickupDate": "2026-10-05",
+    "pickupTime": "09:00 AM",
+    "dropoffDate": "2026-10-07",
+    "dropoffTime": "05:00 PM",
+    "days": 2,
+    "customer": {
+      "fullName": "Samantha Vance",
+      "email": "sam.vance@techcorp.io",
+      "phone": "+1 (415) 555-0143",
+      "age": 29,
+      "licenseNumber": "DL-SF49102"
+    },
+    "addOns": {
+      "insurance": "full",
+      "gps": false,
+      "childSeat": false,
+      "additionalDriver": false,
+      "unlimitedMileage": true,
+      "roadsideAssistance": true
+    },
+    "pricing": {
+      "baseRate": 299,
+      "days": 2,
+      "subtotal": 598,
+      "insuranceCost": 90,
+      "addOnsTotal": 40,
+      "discountAmount": 0,
+      "taxesAndFees": 72.8,
+      "total": 800.8
+    },
+    "payment": {
+      "method": "apple_pay",
+      "last4": "8831",
+      "status": "completed",
+      "paidAt": "2026-10-04T11:00:00Z"
+    },
+    "createdAt": "2026-10-04T11:00:00Z"
+  }
+]

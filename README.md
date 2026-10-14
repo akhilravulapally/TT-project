@@ -108,18 +108,50 @@ car-rental-platform/
 
 ## 💻 How to Run Locally
 
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+### Run Both Frontend & Backend Concurrently (Recommended):
+```bash
+npm start
+# or: npm run dev:all
+```
+- **Frontend Web UI**: [http://localhost:3000](http://localhost:3000)
+- **Backend REST API**: [http://localhost:5000](http://localhost:5000)
 
-2. **Start the local development server**:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Run Services Individually:
+- **Backend API Server**:
+  ```bash
+  npm run server
+  ```
+  Runs the Express API on port 5000 (`/api/cars`, `/api/bookings`, `/api/stats`, `/api/health`).
 
-3. **Build for production**:
-   ```bash
-   npm run build
-   ```
+- **Frontend Client**:
+  ```bash
+  npm run dev
+  ```
+  Runs Vite dev server on port 3000 with automatic proxying to `/api`.
+
+### Production Build:
+```bash
+npm run build
+```
+
+---
+
+## 📡 Backend REST API Endpoints
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/health` | Backend status & uptime |
+| `GET` | `/api/cars` | Fleet catalog (supports `?category=`, `?search=`, `?available=`) |
+| `GET` | `/api/cars/:id` | Vehicle details |
+| `POST` | `/api/cars` | Add new vehicle to fleet (Admin) |
+| `PUT` | `/api/cars/:id` | Update vehicle specs or rate |
+| `PATCH` | `/api/cars/:id/availability` | Toggle vehicle availability |
+| `DELETE` | `/api/cars/:id` | Remove vehicle from fleet |
+| `GET` | `/api/bookings` | Retrieve all customer reservations |
+| `GET` | `/api/bookings/:id` | Retrieve reservation voucher |
+| `POST` | `/api/bookings` | Submit new car booking |
+| `PATCH` | `/api/bookings/:id/status` | Update booking status (`confirmed`, `completed`, `cancelled`) |
+| `GET` | `/api/stats` | Real-time fleet metrics (total cars, revenue, active reservations, utilization) |
+| `GET` | `/api/locations` | List of rental hubs & concierge stations |
+| `GET` | `/api/coupons` | Active promotional discount codes |
+

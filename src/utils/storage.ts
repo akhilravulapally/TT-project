@@ -31,6 +31,11 @@ export const addStoredCar = (car: Car): Car[] => {
   const current = getStoredCars();
   const updated = [car, ...current];
   saveStoredCars(updated);
+  fetch('/api/cars', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(car),
+  }).catch((err) => console.warn('Could not sync new car to backend:', err));
   return updated;
 };
 
@@ -38,6 +43,11 @@ export const updateStoredCar = (updatedCar: Car): Car[] => {
   const current = getStoredCars();
   const updated = current.map(c => (c.id === updatedCar.id ? updatedCar : c));
   saveStoredCars(updated);
+  fetch(`/api/cars/${updatedCar.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedCar),
+  }).catch((err) => console.warn('Could not sync updated car to backend:', err));
   return updated;
 };
 
@@ -47,6 +57,9 @@ export const toggleCarAvailability = (carId: string): Car[] => {
     c.id === carId ? { ...c, isAvailable: !c.isAvailable } : c
   );
   saveStoredCars(updated);
+  fetch(`/api/cars/${carId}/availability`, {
+    method: 'PATCH',
+  }).catch((err) => console.warn('Could not sync availability to backend:', err));
   return updated;
 };
 
@@ -54,11 +67,14 @@ export const deleteStoredCar = (carId: string): Car[] => {
   const current = getStoredCars();
   const updated = current.filter(c => c.id !== carId);
   saveStoredCars(updated);
+  fetch(`/api/cars/${carId}`, {
+    method: 'DELETE',
+  }).catch((err) => console.warn('Could not sync car deletion to backend:', err));
   return updated;
 };
 
 // Initial mock bookings for rich demo experience
-const INITIAL_BOOKINGS: Booking[] = [
+export const INITIAL_BOOKINGS: Booking[] = [
   {
     id: 'BK-78219',
     carId: 'car-1',
@@ -177,6 +193,11 @@ export const createNewBooking = (booking: Booking): Booking[] => {
   const current = getStoredBookings();
   const updated = [booking, ...current];
   saveStoredBookings(updated);
+  fetch('/api/bookings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(booking),
+  }).catch((err) => console.warn('Could not sync booking to backend:', err));
   return updated;
 };
 
@@ -186,7 +207,32 @@ export const updateBookingStatus = (bookingId: string, status: Booking['payment'
     b.id === bookingId ? { ...b, payment: { ...b.payment, status } } : b
   );
   saveStoredBookings(updated);
+  fetch(`/api/bookings/${bookingId}/status`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status }),
+  }).catch((err) => console.warn('Could not sync status to backend:', err));
   return updated;
+};
+
+export const syncFromBackend = async (): Promise<{ cars: Car[]; bookings: Booking[] } | null> => {
+  try {
+    const [carsRes, bookingsRes] = await Promise.all([
+      fetch('/api/cars'),
+      fetch('/api/bookings')
+    ]);
+    if (carsRes.ok && bookingsRes.ok) {
+      const cars: Car[] = await carsRes.json();
+      const bookings: Booking[] = await bookingsRes.json();
+      saveStoredCars(cars);
+      saveStoredBookings(bookings);
+      return { cars, bookings };
+    }
+  } catch (e) {
+    // Graceful fallback to localStorage
+    console.info('Backend API currently unreachable, operating in offline/client storage mode.');
+  }
+  return null;
 };
 
 export const getFavorites = (): string[] => {
