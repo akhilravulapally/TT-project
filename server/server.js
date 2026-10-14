@@ -269,7 +269,7 @@ app.get('/api/coupons', (req, res) => {
 const DIST_DIR = path.join(__dirname, '../dist');
 if (fs.existsSync(DIST_DIR)) {
   app.use(express.static(DIST_DIR));
-  app.get('*', (req, res, next) => {
+  app.use((req, res, next) => {
     if (req.path.startsWith('/api')) {
       return next();
     }
@@ -277,12 +277,12 @@ if (fs.existsSync(DIST_DIR)) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`🚀 ApexDrive Backend API Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 ApexDrive Backend API Server is running on port ${PORT}`);
   console.log(`📡 Endpoints:`);
-  console.log(`   - Health check:     GET  http://localhost:${PORT}/api/health`);
-  console.log(`   - Cars catalog:     GET  http://localhost:${PORT}/api/cars`);
-  console.log(`   - Bookings manager: GET  http://localhost:${PORT}/api/bookings`);
-  console.log(`   - Dashboard stats:  GET  http://localhost:${PORT}/api/stats`);
-  console.log(`   - Fleet locations:  GET  http://localhost:${PORT}/api/locations`);
+  console.log(`   - Health check:     GET  /api/health`);
+  console.log(`   - Cars catalog:     GET  /api/cars`);
+  console.log(`   - Bookings manager: GET  /api/bookings`);
+  console.log(`   - Dashboard stats:  GET  /api/stats`);
+  console.log(`   - Fleet locations:  GET  /api/locations`);
 });
